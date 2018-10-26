@@ -1,6 +1,7 @@
 // TODO: resolve @ alias
 // TODO: plugins
 // TODO: Depending on mode: Last part in here https://webpack.js.org/concepts/mode/
+
 const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
