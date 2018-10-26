@@ -4,6 +4,7 @@
   "description": "Apollo Server 2 Boilerplate",
   "main": "index.js",
   "scripts": {
+    "start": "npm run build & node dist/main.js",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,6 +33,7 @@
   },
   "dependencies": {
     "apollo-server": "2.1.0",
-    "graphql": "0.13.2"
+    "graphql": "0.13.2",
+    "merge-graphql-schemas": "1.5.7"
   }
 }

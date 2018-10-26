@@ -16,7 +16,15 @@ module.exports = {
   ],
   // add your custom rules here
   'rules': {
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        // Overriding Prettier defaults
+        singleQuote: false,
+        trailingComma: 'all',
+        semi: false
+      },
+    ],
     'arrow-parens': 0,
     'generator-star-spacing': 0,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
@@ -30,6 +38,7 @@ module.exports = {
     'spaced-comment': 0,
     'no-useless-escape': 0,
     'brace-style': 0,
-    'semi': 1,
+    'semi': [2, "never"],
+    'block-spacing': [2, 'always']
   }
 }
