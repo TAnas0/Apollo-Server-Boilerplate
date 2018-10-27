@@ -4,9 +4,11 @@
   "description": "Apollo Server 2 Boilerplate",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build & node dist/main.js",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
+    "clean": "rm -rf dist && mkdir dist",
+    "start": "npm run clean && npm run build && node dist/main.js",
+    "dev": "npm run clean && npm run build && concurrently --kill-others \"webpack --watch --mode=development\" \"forever -w ./dist/main.js\"",
+    "build": "webpack --mode development",
+    "build:production": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,11 +21,13 @@
     "@babel/preset-env": "7.1.0",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.4",
+    "concurrently": "4.0.1",
     "eslint": "5.7.0",
     "eslint-config-prettier": "3.1.0",
     "eslint-friendly-formatter": "4.0.1",
     "eslint-loader": "2.1.1",
     "eslint-plugin-prettier": "3.0.0",
+    "forever": "0.15.3",
     "graphql-tag": "2.10.0",
     "prettier": "1.14.3",
     "standard": "12.0.1",
