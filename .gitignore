@@ -77,3 +77,6 @@ typings/
 
 # Personal todos
 todo.md
+
+# Webpack output folder
+dist/

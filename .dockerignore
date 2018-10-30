@@ -1,0 +1,6 @@
+*
+!src/
+!package.json
+!webpack.config.js
+!.eslintrc.js
+!.eslintignore
