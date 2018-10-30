@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "01da2adc2f2d3b847f72";
+/******/ 	var hotCurrentHash = "27df6d02e72a39fc4b0a";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -752,10 +752,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/graphql/index.js":
-/*!******************************!*\
-  !*** ./src/graphql/index.js ***!
-  \******************************/
+/***/ "./src/api/schema/index.js":
+/*!*********************************!*\
+  !*** ./src/api/schema/index.js ***!
+  \*********************************/
 /*! exports provided: typeDefs, resolvers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -763,9 +763,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typeDefs", function() { return typeDefs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resolvers", function() { return resolvers; });
-/* harmony import */ var _types_article_graphql__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types/article.graphql */ "./src/graphql/types/article.graphql");
+/* harmony import */ var _types_article_graphql__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types/article.graphql */ "./src/api/schema/types/article.graphql");
 /* harmony import */ var _types_article_graphql__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_types_article_graphql__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _resolvers_articles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./resolvers/articles */ "./src/graphql/resolvers/articles.js");
+/* harmony import */ var _resolvers_articles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./resolvers/articles */ "./src/api/schema/resolvers/articles.js");
 /* harmony import */ var merge_graphql_schemas__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! merge-graphql-schemas */ "merge-graphql-schemas");
 /* harmony import */ var merge_graphql_schemas__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(merge_graphql_schemas__WEBPACK_IMPORTED_MODULE_2__);
 // Type imports
@@ -779,10 +779,10 @@ var resolvers = Object(merge_graphql_schemas__WEBPACK_IMPORTED_MODULE_2__["merge
 
 /***/ }),
 
-/***/ "./src/graphql/resolvers/articles.js":
-/*!*******************************************!*\
-  !*** ./src/graphql/resolvers/articles.js ***!
-  \*******************************************/
+/***/ "./src/api/schema/resolvers/articles.js":
+/*!**********************************************!*\
+  !*** ./src/api/schema/resolvers/articles.js ***!
+  \**********************************************/
 /*! exports provided: articleResolvers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -790,9 +790,11 @@ var resolvers = Object(merge_graphql_schemas__WEBPACK_IMPORTED_MODULE_2__["merge
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleResolvers", function() { return articleResolvers; });
 var posts = [{
+  id: 1,
   title: "Harry Potter and the Chamber of Secrets",
   author: "J.K. Rowling"
 }, {
+  id: 2,
   title: "Jurassic Park",
   author: "Michael Crichton"
 }];
@@ -806,10 +808,10 @@ var articleResolvers = {
 
 /***/ }),
 
-/***/ "./src/graphql/types/article.graphql":
-/*!*******************************************!*\
-  !*** ./src/graphql/types/article.graphql ***!
-  \*******************************************/
+/***/ "./src/api/schema/types/article.graphql":
+/*!**********************************************!*\
+  !*** ./src/api/schema/types/article.graphql ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -852,16 +854,22 @@ var articleResolvers = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! apollo-server */ "apollo-server");
 /* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _graphql__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./graphql */ "./src/graphql/index.js");
+/* harmony import */ var _api_schema__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api/schema */ "./src/api/schema/index.js");
 
 
+
+if (true) {
+  __webpack_require__(/*! dotenv */ "dotenv").load();
+}
+
+var port = process.env.PORT || 4000;
 var server = new apollo_server__WEBPACK_IMPORTED_MODULE_0__["ApolloServer"]({
-  typeDefs: _graphql__WEBPACK_IMPORTED_MODULE_1__["typeDefs"],
-  resolvers: _graphql__WEBPACK_IMPORTED_MODULE_1__["resolvers"]
+  typeDefs: _api_schema__WEBPACK_IMPORTED_MODULE_1__["typeDefs"],
+  resolvers: _api_schema__WEBPACK_IMPORTED_MODULE_1__["resolvers"]
 }); // This `listen` method launches a web-server.  Existing apps
 // can utilize middleware options, which we'll discuss later.
 
-server.listen().then(function (_ref) {
+server.listen(port).then(function (_ref) {
   var url = _ref.url;
   console.log("\uD83D\uDE80  Server ready at ".concat(url));
 });
@@ -876,6 +884,17 @@ server.listen().then(function (_ref) {
 /***/ (function(module, exports) {
 
 module.exports = require("apollo-server");
+
+/***/ }),
+
+/***/ "dotenv":
+/*!*************************!*\
+  !*** external "dotenv" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("dotenv");
 
 /***/ }),
 
