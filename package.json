@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
-    "start": "npm run clean && npm run build && node dist/main.js",
+    "start": "npm run clean && npm run build:production && node dist/main.js",
     "dev": "npm run clean && npm run build && concurrently --kill-others \"webpack --watch --mode=development\" \"forever -w ./dist/main.js\"",
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "apollo"
+    "apollo",
+    "graphql",
+    "boilerplate"
   ],
   "author": "TAnas0",
   "license": "MIT",
@@ -37,6 +39,7 @@
   },
   "dependencies": {
     "apollo-server": "2.1.0",
+    "dotenv": "6.1.0",
     "graphql": "0.13.2",
     "merge-graphql-schemas": "1.5.7"
   }
