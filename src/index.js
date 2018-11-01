@@ -1,9 +1,24 @@
 import { ApolloServer, gql } from "apollo-server"
 import { typeDefs, resolvers } from "./api/schema"
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").load()
+if (process.env.NODE_ENV === "production") {
+  // require("dotenv").load()
+  require("dotenv").config()
+  console.log("PROD")
+  console.log(process.env.NODE_ENV)
 }
+
+if (process.env.NODE_ENV === "development") {
+  // require("dotenv").load()
+  require("dotenv").config({
+    path: ".env.dev",
+  })
+  console.log("DEV")
+  console.log(process.env.NODE_ENV)
+}
+
+console.log(process.env.BRO)
+console.log(process.env.YO)
 
 const port = process.env.PORT || 4000
 

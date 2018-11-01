@@ -79,4 +79,5 @@ typings/
 todo.md
 
 # Webpack output folder
-dist/
+dist/*
+dist/main.js
