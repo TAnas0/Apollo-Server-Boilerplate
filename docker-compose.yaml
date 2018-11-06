@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    container_name: postgres-docker
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: r2d2c3po
+      COMPOSE_PROJECT_NAME: minidesk_api_compose
+
+  # pgAdmin:
+  #   container_name: pgadmin
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: user@domain.com
+  #     PGADMIN_DEFAULT_PASSWORD: r2d2c3po
+  #   ports:
+  #     - "80:80"
