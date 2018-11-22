@@ -20,3 +20,13 @@ services:
     depends_on:
       - db
 
+  api:
+    container_name: -graphql-api
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    env_file:
+      - ./backend/.env.dev
+    ports:
+      - 4000:4000
+    # depends_on:
