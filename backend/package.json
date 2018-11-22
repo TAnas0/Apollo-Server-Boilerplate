@@ -1,0 +1,46 @@
+{
+  "name": "apollo-server-2-boilerplate",
+  "version": "1.0.0",
+  "description": "Apollo Server 2 Boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist && mkdir dist",
+    "start": "npm run clean && npm run build:production && node dist/main.js",
+    "dev": "npm run clean && npm run build && concurrently --kill-others \"webpack --watch --mode=development\" \"forever -w ./dist/main.js\"",
+    "build": "webpack --mode development",
+    "build:production": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "apollo",
+    "graphql",
+    "boilerplate"
+  ],
+  "author": "TAnas0",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "7.1.0",
+    "babel-eslint": "10.0.1",
+    "babel-loader": "8.0.4",
+    "concurrently": "4.0.1",
+    "eslint": "5.7.0",
+    "eslint-config-prettier": "3.1.0",
+    "eslint-friendly-formatter": "4.0.1",
+    "eslint-loader": "2.1.1",
+    "eslint-plugin-prettier": "3.0.0",
+    "forever": "0.15.3",
+    "graphql-tag": "2.10.0",
+    "prettier": "1.14.3",
+    "standard": "12.0.1",
+    "webpack": "4.23.1",
+    "webpack-cli": "3.1.2",
+    "webpack-node-externals": "1.7.2"
+  },
+  "dependencies": {
+    "apollo-server": "2.1.0",
+    "dotenv": "6.1.0",
+    "graphql": "0.13.2",
+    "merge-graphql-schemas": "1.5.7"
+  }
+}
