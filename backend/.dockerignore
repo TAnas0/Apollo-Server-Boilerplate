@@ -1,0 +1,9 @@
+# Whitelist of allowed files
+*
+!src/
+!package.json
+!package-lock.json
+!webpack.config.js
+!.eslintrc.js
+!.eslintignore
+!.babelrc
