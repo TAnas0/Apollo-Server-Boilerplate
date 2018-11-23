@@ -13,6 +13,8 @@ const posts = [
 
 export const articleResolvers = {
   Query: {
-    getPosts: () => posts,
+    getPosts: (obj, args, context, info) => posts,
+    getContext: (obj, args, context, info) =>
+      context.user.then(response => "SUCCESS").catch(error => error),
   },
 }

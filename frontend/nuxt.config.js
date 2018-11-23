@@ -13,9 +13,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -26,21 +24,17 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [
-    '~/assets/css/tailwind.css'
-  ],
+  css: ['~/assets/css/tailwind.css'],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
+  plugins: [],
 
   /*
   ** Nuxt.js modules
   */
-  modules: [
-  ],
+  modules: ['@nuxtjs/apollo'],
 
   /*
   ** Build configuration
@@ -58,6 +52,32 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+      }
+    }
+  },
+
+  /*
+  ** Apollo module options
+  */
+  apollo: {
+    includeNodeModules: true,
+    authenticationType: 'Bearer',
+    errorHandler(error) {
+      console.log(
+        '%cError',
+        'background: red; color: white; padding: 2px 4px; border-radius: 3px; font-weight: bold;',
+        error.message
+      )
+    },
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'http://localhost:4000/graphql',
+        wsEndpoint: '',
+        persisting: ''
+      },
+      test: {
+        httpEndpoint: 'http://localhost:4000/graphql',
+        wsEndpoint: ''
       }
     }
   }
