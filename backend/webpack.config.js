@@ -1,4 +1,3 @@
-// TODO: resolve @ alias
 // TODO: plugins
 // TODO: Depending on mode: Last part in here https://webpack.js.org/concepts/mode/
 
