@@ -29,12 +29,16 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: ['~/plugins/auth0.js'],
+
+  router: {
+    middleware: ['loginUser']
+  },
 
   /*
   ** Nuxt.js modules
   */
-  modules: ['@nuxtjs/apollo'],
+  modules: ['@nuxtjs/apollo', '@nuxtjs/dotenv'],
 
   /*
   ** Build configuration
@@ -44,6 +48,11 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      if (!ctx.isServer) {
+        config.node = {
+          fs: 'empty'
+        }
+      }
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
@@ -80,5 +89,14 @@ module.exports = {
         wsEndpoint: ''
       }
     }
+  },
+
+  /**
+   * Auth0 configuration
+   */
+  auth0: {
+    clientID: process.env.AUTH0_CLIENT_ID,
+    domain: process.env.AUTH0_DOMAIN,
+    updateSessionMinutes: 5
   }
 }
