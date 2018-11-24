@@ -15,6 +15,6 @@ export const articleResolvers = {
   Query: {
     getPosts: (obj, args, context, info) => posts,
     getContext: (obj, args, context, info) =>
-      context.user.then(response => "SUCCESS").catch(error => error),
+      context.user.then(response => response).catch(error => error),
   },
 }

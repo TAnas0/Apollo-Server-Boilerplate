@@ -31,8 +31,6 @@ function getKey(header, cb) {
 }
 
 const options = {
-  audience: process.env.AUTH0_AUDIENCE,
-  // issuer: "https://ta-auth.eu.auth0.com/",
   issuer: process.env.AUTH0_ISSUER,
   algorithms: ["RS256"],
 }
@@ -54,6 +52,8 @@ const server = new ApolloServer({
           if (err) {
             return reject(err)
           }
+          // resolve(decoded)
+          console.log(decoded)
           resolve(decoded.email)
         })
       })
