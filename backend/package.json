@@ -38,9 +38,12 @@
     "webpack-node-externals": "1.7.2"
   },
   "dependencies": {
+    "@babel/plugin-transform-runtime": "7.1.0",
+    "@babel/runtime": "7.1.5",
     "apollo-server": "2.1.0",
     "dotenv": "6.1.0",
     "graphql": "0.13.2",
-    "merge-graphql-schemas": "1.5.7"
+    "merge-graphql-schemas": "1.5.7",
+    "prisma-client-lib": "1.21.1"
   }
 }
