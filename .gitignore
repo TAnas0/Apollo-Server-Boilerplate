@@ -82,3 +82,9 @@ todo.md
 # Webpack output folder
 dist/*
 dist/main.js
+
+# Prisma generated code
+generated/
+
+frontend/dist
+backend/dist
