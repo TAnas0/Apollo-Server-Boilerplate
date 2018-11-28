@@ -1,3 +1,5 @@
+import { prisma } from "@/prisma/generated/prisma-client"
+
 const posts = [
   {
     id: 1,
@@ -11,8 +13,15 @@ const posts = [
   },
 ]
 
+async function getPostsFromDB() {
+  console.log("reachd")
+  const posts = await prisma.posts()
+  return posts
+}
+
 export const articleResolvers = {
   Query: {
     getPosts: () => posts,
+    getPostsFromDB: getPostsFromDB,
   },
 }
