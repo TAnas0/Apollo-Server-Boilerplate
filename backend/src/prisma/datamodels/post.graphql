@@ -1,0 +1,4 @@
+type Post {
+  title: String! @unique
+  author: User! @relation(name: "Author")
+}

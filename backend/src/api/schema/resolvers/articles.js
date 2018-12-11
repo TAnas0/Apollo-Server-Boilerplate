@@ -14,7 +14,6 @@ const posts = [
 ]
 
 async function getPostsFromDB() {
-  console.log("reachd")
   const posts = await prisma.posts()
   return posts
 }

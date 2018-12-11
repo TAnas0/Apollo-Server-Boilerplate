@@ -1,5 +1,10 @@
 endpoint: http://localhost:4466
-datamodel: datamodel.prisma
+datamodel:
+  - datamodels/post.graphql
+  - datamodels/user.graphql
 generate:
   - generator: javascript-client
     output: ./generated/prisma-client/
+seed:
+  run: node seed.js
+

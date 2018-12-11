@@ -7,6 +7,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+      POSTGRES_DB: prisma
       COMPOSE_PROJECT_NAME: minidesk_api_compose
 
   prisma:
@@ -27,7 +28,7 @@ services:
             password: password
             # migrations: true
     depends_on:
-      - api
+      # - api
       - db
 
   # The API is better launched using `npm run dev` for hot reloading

@@ -3,8 +3,3 @@ type User {
   name: String!
   posts: [Post!]! @relation(name:"Posts", onDelete: CASCADE)
 }
-
-type Post {
-  title: String! @unique
-  author: User! @relation(name: "Author")
-}
