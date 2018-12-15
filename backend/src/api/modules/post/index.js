@@ -3,20 +3,20 @@ import { GraphQLModule } from "@graphql-modules/core"
 import { mergeTypes, mergeResolvers } from "merge-graphql-schemas"
 
 // Type imports
-import articleType from "@/api/modules/article/types/article.graphql"
+import postType from "@/api/modules/post/types/post.graphql"
 // import commentType from "@/api/modules/comment/types/comment.graphql"
 // Resolvers imports
-import { articleResolvers } from "@/api/modules/article/resolvers/articles"
+import { postResolvers } from "@/api/modules/post/resolvers/posts"
 
 // Resolvers imports
 
-const typeDefs = mergeTypes([articleType])
+const typeDefs = mergeTypes([postType])
 
-const resolvers = mergeResolvers([articleResolvers])
+const resolvers = mergeResolvers([postResolvers])
 
 // This should now export a schema using modules
 
-export const ArticleModule = new GraphQLModule({
+export const PostModule = new GraphQLModule({
   typeDefs,
   resolvers,
 })

@@ -1,4 +1,12 @@
 type Post {
+  id: ID! @unique
   title: String! @unique
-  author: User! @relation(name: "Author")
+  author: User! @relation(name: "PostAuthor")
+  comments: [Comment!]! @relation(name: "PostComments", onDelete: CASCADE)
+}
+
+type Comment {
+	id: ID! @unique
+  content: String!
+  author: User! @relation(name: "CommentAuthor")
 }
