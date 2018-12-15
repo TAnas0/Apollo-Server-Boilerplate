@@ -1,7 +1,8 @@
-endpoint: http://localhost:4466
+# endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: http://localhost:4466/
 datamodel:
-  - datamodels/post.graphql
-  - datamodels/user.graphql
+  - models/post.graphql
+  - models/user.graphql
 generate:
   - generator: javascript-client
     output: ./generated/prisma-client/

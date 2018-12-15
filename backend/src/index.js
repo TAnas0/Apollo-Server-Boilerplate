@@ -1,5 +1,5 @@
 import { ApolloServer, gql } from "apollo-server"
-import { typeDefs, resolvers } from "./api/schema"
+import { schema, context } from "@/api/modules"
 
 if (process.env.NODE_ENV === "production") {
   // require("dotenv").load()
@@ -17,14 +17,11 @@ if (process.env.NODE_ENV === "development") {
   console.log(process.env.NODE_ENV)
 }
 
-console.log(process.env.BRO)
-console.log(process.env.YO)
-
 const port = process.env.PORT || 4000
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema,
+  context,
 })
 
 // This `listen` method launches a web-server.  Existing apps
