@@ -1,3 +1,13 @@
 type Comment {
 	id: ID!
 }
+
+type Query {
+  getComments: [Comment],
+  getCommentsFromDB: [Comment],
+}
+
+# extend type Post {
+type Post {
+  commment: Comment
+}
