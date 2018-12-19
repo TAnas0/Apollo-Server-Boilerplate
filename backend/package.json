@@ -9,7 +9,8 @@
     "dev": "npm run clean && npm run build && concurrently --kill-others \"webpack --watch --mode=development\" \"forever -w ./dist/main.js\"",
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git-cz"
   },
   "keywords": [
     "apollo",
@@ -21,8 +22,11 @@
   "devDependencies": {
     "@babel/core": "7.1.2",
     "@babel/preset-env": "7.1.0",
+    "@commitlint/config-angular": "^7.1.2",
+    "@commitlint/prompt": "^7.2.1",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.4",
+    "commitizen": "^3.0.5",
     "concurrently": "4.0.1",
     "eslint": "5.7.0",
     "eslint-config-prettier": "3.1.0",
@@ -46,5 +50,10 @@
     "graphql": "0.13.2",
     "merge-graphql-schemas": "1.5.7",
     "prisma-client-lib": "1.21.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
+    }
   }
 }
