@@ -1,24 +1,51 @@
 const { prisma } = require("./generated/prisma-client")
 
 const seedFunction = async () => {
+  const users = [
+    {
+      username: "JKRowling",
+      email: "jkrowling@harry.potter",
+    },
+    {
+      username: "billgates",
+      email: "billgates@microsoft.com",
+    },
+  ]
   const posts = [
     {
       title: "Harry Potter and the Chamber of Secrets",
       author: {
-        create: {
-          name: "J.K. Rowling",
+        connect: {
+          email: "jkrowling@harry.potter",
         },
+      },
+      comments: {
+        create: [
+          {
+            content: "Harry Potter is dead.",
+            author: {
+              connect: {
+                email: "billgates@microsoft.com",
+              },
+            },
+          },
+        ],
       },
     },
     {
-      title: "Jurassic Park",
+      title: "About Windows Vista",
       author: {
-        create: {
-          name: "Michael Crichton",
+        connect: {
+          email: "billgates@microsoft.com",
         },
       },
     },
   ]
+  for (var i = 0; i < posts.length; i++) {
+    const response = await prisma.createUser(users[i])
+    console.log("Created User")
+    console.log(response)
+  }
   for (var i = 0; i < posts.length; i++) {
     const response = await prisma.createPost(posts[i])
     console.log("\nCreated post")

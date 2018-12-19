@@ -1,6 +1,7 @@
 type User {
   id: ID! @unique
   username: String!
-  posts: [Post!]! @relation(name:"UserPosts", onDelete: CASCADE)
-  comments: [Comment!]! @relation(name:"UserComments", onDelete: CASCADE)
+  email: String! @unique
+  posts: [Post!]! @relation(name:"UserPosts", onDelete: CASCADE) @default(value: [])
+  comments: [Comment!]! @relation(name:"UserComments", onDelete: CASCADE) @default(value: [])
 }
