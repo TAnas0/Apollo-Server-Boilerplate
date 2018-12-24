@@ -1,0 +1,8 @@
+type Query {
+	me: UserAuth,
+	token: String
+}
+
+type UserAuth {
+	username: String
+}
