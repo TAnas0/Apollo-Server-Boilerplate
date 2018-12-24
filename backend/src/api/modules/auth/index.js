@@ -4,37 +4,38 @@ import { mergeTypes, mergeResolvers } from "merge-graphql-schemas"
 
 // Types and resolvers imports
 import authType from "@/api/modules/auth/types/auth.graphql"
-import { tradeTokenForUser } from "./utils"
 import { authResolvers } from "@/api/modules/auth/resolvers/auth"
 
 const typeDefs = mergeTypes([authType])
 const resolvers = mergeResolvers([authResolvers])
 
-const HEADER_NAME = "authorization"
+// const HEADER_NAME = "authorization"
+const users = {
+  brucelee: {
+    username: "brucelee",
+  },
+}
+
+// GetUser
+function getUser(req) {
+  // console.log(req)
+  const auth = req.headers["authorization"]
+  console.log("getUser")
+  console.log(auth)
+  console.log(users[auth])
+  if (users[auth]) {
+    return users[auth]
+  } else {
+    return null
+  }
+}
 
 export const AuthModule = new GraphQLModule({
   name: "auth",
   typeDefs,
   resolvers,
-  context: ({ req }) => {
-    let authToken = null
-    let currentUser = null
-
-    try {
-      authToken = req.headers[HEADER_NAME]
-
-      if (authToken) {
-        currentUser = tradeTokenForUser(authToken)
-        console.log("currentUser")
-        console.log(currentUser)
-      }
-    } catch (e) {
-      console.warn(`Unable to authenticate using ${authToken}`)
-    }
-
-    return {
-      authToken,
-      currentUser,
-    }
-  },
+  context: req => ({
+    ...req,
+    user: getUser(req.req),
+  }),
 })

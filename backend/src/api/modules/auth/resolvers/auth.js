@@ -1,5 +1,6 @@
 async function me(root, args, context, info) {
-  return context.currentUser
+  // return context.currentUser
+  return context.user
 }
 
 async function token(root, args, context, info) {
