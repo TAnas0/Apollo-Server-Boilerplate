@@ -87,3 +87,6 @@ dist/main.js
 generated/
 
 dist
+
+config/
+!config/default.example.yaml

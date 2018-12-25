@@ -1,2 +1,5 @@
-Customer:
-  testVar: "yaaaaaaay"
+database:
+  host: localhost
+  name: database
+  user: postgres
+  password: postgres
