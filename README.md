@@ -1,5 +1,6 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
+> Please note that this is work in progress. Feel free to open issues, contribute or give feedback.
 
 ## Quick start
 
@@ -11,38 +12,37 @@
 
 ## Features to document
 
-Prisma:
+**Prisma:**
 
 - as ORM
 - point to its documentation, video
 - state principle of it and use
 - seeding the database
 
-Apollo:
+**Data sources:**
 
-- Data sources:
-example use case from a public API of REST
-example of graphql API
+- example use case from a public API of REST
+- example of graphql API
 
-GraphQL modules:
-Cleanly separate your business logic into resusable components and facilitate collaboration.
-Fully embraces the GraphQL philosophy
-Organize schema and resolvers by features
+**GraphQL modules:**
+- Cleanly separate your business logic into resusable components and facilitate collaboration.
+- Fully embraces the GraphQL philosophy
+- Organize schema and resolvers by features
 
-Authentication:
+**Authentication:**
 
 Trade a token, supplied as the `Authentication` header, for a user and provide it to the resolvers by injecting it in the context, thus separating the authentication and business layers.
 
-- Modules
+- Using a deedicated GraphQL module (in the `master` branch)
 
-- GraphQL shield: using `graphql-middleware` to trade a token for a user and injecting it in the context of the resolvers
+- GraphQL shield: using `graphql-middleware` to trade a token for a user and injecting it in the context of the resolvers (in the `graphql-shield` branch)
 
 ## About modules
 
 The backend is organized into [GraphQL modules](https://graphql-modules.com/)
 More information in this [Medium post](https://medium.com/the-guild/graphql-modules-feature-based-graphql-modules-at-scale-2d7b2b0da6da)
 
-Each modules merges its types and resolvers in order to export a `GraphQLModule` instance. These modules are then imported and merged into a single `GraphQLModule` module in the file `src/api/modules/index.js`. This object holds, among others, the `schema` and `context` which are fed to the `ApolloServer` instance in `src/api/index.js`
+Each module merges its types and resolvers in order to export a `GraphQLModule` instance. These modules are then imported and merged into a single `GraphQLModule` module in the file `src/api/modules/index.js`. This object holds, among others, the `schema` and `context` which are fed to the `ApolloServer` instance in `src/api/index.js`
 
 GraphQL modules offers extensibility of your code base and forces/helps you organize your SDL types by domain/feature rather than by type.
 
@@ -56,6 +56,8 @@ This project contains two more branches with additional features compared to the
 ## Contributing
 
 In order to keep the `graphql-shield` and `nuxt-frontend` branches in sync with the `master` branch, all modifications related to the backend must be implemented first in the `master` branch then merged into the branch in question. Only then can additional modifications of the backend, specific to that branch, be added.
+
+Please use the alias `npm run commit` for Commitizen friendly commits.
 
 ## Todos and roadmap
 
