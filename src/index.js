@@ -1,5 +1,6 @@
 import { ApolloServer, gql } from "apollo-server"
 import { appModule } from "@/api/modules"
+import config from "config"
 
 if (process.env.NODE_ENV === "production") {
   // require("dotenv").load()
@@ -15,6 +16,8 @@ if (process.env.NODE_ENV === "development") {
   })
   console.log("DEV")
   console.log(process.env.NODE_ENV)
+  const customerConfig = config.get("Customer.testVar")
+  console.log(customerConfig)
 }
 
 const port = process.env.PORT || 4000
