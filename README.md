@@ -24,6 +24,19 @@ Apollo:
 example use case from a public API of REST
 example of graphql API
 
+GraphQL modules:
+Cleanly separate your business logic into resusable components and facilitate collaboration.
+Fully embraces the GraphQL philosophy
+Organize schema and resolvers by features
+
+Authentication:
+
+Trade a token, supplied as the `Authentication` header, for a user and provide it to the resolvers by injecting it in the context, thus separating the authentication and business layers.
+
+- Modules
+
+- GraphQL shield: using `graphql-middleware` to trade a token for a user and injecting it in the context of the resolvers
+
 ## About modules
 
 The backend is organized into [GraphQL modules](https://graphql-modules.com/)

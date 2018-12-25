@@ -1,5 +1,11 @@
 type Comment {
 	id: ID!
+	content: String!
+}
+
+# Extending Post type
+type Post {
+  comments: [Comment]
 }
 
 type Query {

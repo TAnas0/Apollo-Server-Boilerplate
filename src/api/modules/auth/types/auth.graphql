@@ -1,8 +1,19 @@
-type Query {
-	me: UserAuth,
-	token: String
+type User {
+	username: String
+  posts: [Post]!
+  comments: [Comment]!
 }
 
-type UserAuth {
-	username: String
+# Extending Post type
+type Post {
+  author: User!
+}
+
+# Extending Comment type
+type Comment {
+  author: User!
+}
+
+type Query {
+	currentUser: User,
 }

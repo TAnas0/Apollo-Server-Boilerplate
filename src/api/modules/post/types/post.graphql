@@ -1,23 +1,9 @@
 type Post {
   id: ID!
   title: String!
-  author: User!
-  comments: [Comment]
 }
 
 type Query {
   getPosts: [Post],
   getPostsFromDB: [Post],
-}
-
-type Comment {
-	id: ID!
-  content: String!
-  author: User!
-}
-
-# Extend the type User from module User
-type User {
-  posts: [Post]!
-  comments: [Comment]!
 }
