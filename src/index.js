@@ -4,20 +4,12 @@ import config from "config"
 
 if (process.env.NODE_ENV === "production") {
   // require("dotenv").load()
-  require("dotenv").config()
-  console.log("PROD")
   console.log(process.env.NODE_ENV)
 }
 
 if (process.env.NODE_ENV === "development") {
-  // require("dotenv").load()
-  require("dotenv").config({
-    path: ".env.dev",
-  })
-  console.log("DEV")
   console.log(process.env.NODE_ENV)
-  const customerConfig = config.get("Customer.testVar")
-  console.log(customerConfig)
+  console.log(CONFIG)
 }
 
 const port = process.env.PORT || 4000

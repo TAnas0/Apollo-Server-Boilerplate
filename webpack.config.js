@@ -54,6 +54,8 @@ module.exports = {
   plugins: [
     // HMR should never be used in production
     new webpack.HotModuleReplacementPlugin(),
+    // https://github.com/lorenwest/node-config/wiki/Webpack-Usage
+    new webpack.DefinePlugin({ CONFIG: JSON.stringify(require("config")) }),
   ],
 
   optimization: {
