@@ -2,7 +2,7 @@
 import { GraphQLModule } from "@graphql-modules/core"
 
 // Importing the GraphQL modules
-import { UserModule } from "@/api/modules/user"
+import { CommentModule } from "@/api/modules/comment"
 import { PostModule } from "@/api/modules/post"
 import { AuthModule } from "@/api/modules/auth"
 
@@ -11,7 +11,7 @@ import { authenticated } from "@/api/modules/auth/utils"
 // import validateRole from "@/api/modules/auth/utils"
 
 export const appModule = new GraphQLModule({
-  imports: () => [UserModule, PostModule, AuthModule],
+  imports: () => [PostModule, CommentModule, AuthModule],
   resolversComposition: {
     "Query.me": [authenticated()],
   },
