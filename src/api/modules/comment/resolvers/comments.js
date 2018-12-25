@@ -1,22 +1,19 @@
 import { prisma } from "@/prisma/generated/prisma-client"
 
-const users = [
+const comments = [
   {
     id: 1,
   },
-  {
-    id: 2,
-  },
 ]
 
-async function getUsersFromDB() {
-  const users = await prisma.users()
-  return users
+async function getCommentsFromDB() {
+  const comments = await prisma.comments()
+  return comments
 }
 
-export const userResolvers = {
+export const commentResolvers = {
   Query: {
-    getCurrentUser: () => [users[0]],
-    getUsersFromDB,
+    getComments: () => comments,
+    getCommentsFromDB,
   },
 }

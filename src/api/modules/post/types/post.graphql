@@ -8,8 +8,6 @@ type Post {
 type Query {
   getPosts: [Post],
   getPostsFromDB: [Post],
-  getComments: [Comment],
-  getCommentsFromDB: [Comment],
 }
 
 type Comment {

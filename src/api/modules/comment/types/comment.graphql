@@ -1,8 +1,8 @@
-type User {
+type Comment {
 	id: ID!
 }
 
 type Query {
-  getCurrentUser: [User],
-  # login: ,
+  getComments: [Comment],
+  getCommentsFromDB: [Comment],
 }

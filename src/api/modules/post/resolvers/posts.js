@@ -13,26 +13,14 @@ const posts = [
   },
 ]
 
-const comments = [
-  {
-    id: 1,
-  },
-]
 async function getPostsFromDB() {
   const posts = await prisma.posts()
   return posts
-}
-
-async function getCommentsFromDB() {
-  const comments = await prisma.comments()
-  return comments
 }
 
 export const postResolvers = {
   Query: {
     getPosts: () => posts,
     getPostsFromDB,
-    getComments: () => comments,
-    getCommentsFromDB,
   },
 }
