@@ -1,4 +1,4 @@
-async function currentUser(root, args, context, info) {
+async function currentUser(root: any, args: any, context: any, info: any) {
   return context.currentUser
 }
 

@@ -4,7 +4,7 @@ datamodel:
   - models/post.graphql
   - models/user.graphql
 generate:
-  - generator: javascript-client
+  - generator: typescript-client
     output: ./generated/prisma-client/
 seed:
   run: node seed.js

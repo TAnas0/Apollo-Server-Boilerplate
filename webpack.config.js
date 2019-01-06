@@ -15,6 +15,7 @@ module.exports = {
   // See: https://blog.scottlogic.com/2017/11/01/webpack-source-map-options-quick-guide.html
   devtool: "#source-map",
 
+  entry: "./src/index.ts",
   module: {
     rules: [
       // https://github.com/webpack-contrib/eslint-loader
@@ -42,6 +43,11 @@ module.exports = {
         exclude: /node_modules/,
         loader: "graphql-tag/loader",
       },
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
   },
 
@@ -49,6 +55,7 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
+    extensions: [".tsx", ".ts", ".js"],
   },
 
   plugins: [
