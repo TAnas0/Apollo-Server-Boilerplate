@@ -1,5 +1,3 @@
-// require('module-alias/register')
-
 import { appModule } from "@/api/modules";
 
 
@@ -16,6 +14,12 @@ const server = new ApolloServer({
   schema,
   context,
   introspection: true,
+	// context: (req: any) => ({
+	// 	...req,
+	// 	// ...context,
+	// 	// ...request,
+	// 	prisma: prisma
+	// })
 })
 
 server.listen(port).then(({ url }: {url: string}) => {
