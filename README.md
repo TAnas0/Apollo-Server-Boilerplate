@@ -13,9 +13,9 @@
 
 1. Install dependencies: `npm install`
 2. Launch the Postgres database and Prisma server: `docker-compose up -d`
-3. Deploy your models to Prisma and generate the client: `prisma deploy && prisma generate`
+3. Deploy your models to Prisma and generate the client: `prisma generate && prisma deploy`
 4. Run the API for development: `npm run dev`
-5. Access your Graphql API at http://localhost:4000
+5. Access the playground of your Graphql API at http://localhost:4000
 
 ## Features
 

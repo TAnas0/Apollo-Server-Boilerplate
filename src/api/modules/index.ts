@@ -10,12 +10,12 @@ import { AuthModule } from "@/api/modules/auth"
 
 // Importing guards
 import { authenticated } from "@/api/modules/auth/utils"
-import { ModuleSessionInfo } from "@graphql-modules/core/dist/module-session-info";
+// import { ModuleSessionInfo } from "@graphql-modules/core/dist/module-session-info";
 // import validateRole from "@/api/modules/auth/utils"
 
 export const appModule = new GraphQLModule({
   // imports: () => [PostModule, CommentModule, AuthModule],
-  imports: () => [PostModule, CommentModule],
+  imports: () => [PostModule, CommentModule, AuthModule],
   resolversComposition: {
     "Query.me": [authenticated()],
   },

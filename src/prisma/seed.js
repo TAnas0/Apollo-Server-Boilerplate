@@ -1,6 +1,7 @@
 const { prisma } = require("./generated/prisma-client")
 
 const seedFunction = async () => {
+  console.log("Seeding database...")
   const users = [
     {
       username: "JKRowling",

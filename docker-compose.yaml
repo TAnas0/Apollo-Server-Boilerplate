@@ -2,22 +2,24 @@ version: '3'
 
 services:
   db:
-    container_name: postgres-docker
+    container_name: "db"
     image: postgres:11.0
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: prisma
-      COMPOSE_PROJECT_NAME: minidesk_api_compose
+    networks:
+    - 'prisma'
 
   prisma:
-    image: prismagraphql/prisma:1.21
+    container_name: "prisma"
+    image: prismagraphql/prisma:1.22
     restart: always
     ports:
-    - "4466:4466"
+    - 7766:7766
     environment:
       PRISMA_CONFIG: |
-        port: 4466
+        port: 7766
         databases:
           default:
             connector: postgres
@@ -26,10 +28,12 @@ services:
             port: 5432
             user: postgres
             password: password
-            # migrations: true
+            migrations: true
     depends_on:
       # - api
       - db
+    networks:
+    - 'prisma'
 
   # The API is better launched using `npm run dev` for hot reloading
   # api:
@@ -41,3 +45,7 @@ services:
   #     - ./backend/.env.dev
   #   ports:
   #     - 4000:4000
+
+networks:
+  prisma:
+    driver: "bridge"
