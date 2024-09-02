@@ -6,14 +6,14 @@
 
 - Docker
 - Docker Compose
-- [Prisma CLI](https://www.prisma.io/docs/prisma-cli-and-configuration/using-the-prisma-cli-alx4/) (`npm install -g prisma`)
-- Node and NPM
+- [Prisma CLI](https://www.prisma.io/docs/prisma-cli-and-configuration/using-the-prisma-cli-alx4/) version 1 (`npm install -g prisma1`)
+- Node version 16 and NPM version 8
 
 ## Quick start
 
 1. Install dependencies: `npm install`
 2. Launch the Postgres database and Prisma server: `docker-compose up -d`
-3. Deploy your models to Prisma and generate the client: `prisma generate && prisma deploy`
+3. Deploy your models to Prisma and generate the client: `cd src/prisma && prisma generate && prisma deploy`
 4. Run the API for development: `npm run dev`
 5. Access the playground of your Graphql API at http://localhost:4000
 
@@ -25,7 +25,8 @@
 
 ## GraphQL Modules
 
-The backend is organized into [GraphQL modules](https://graphql-modules.com/)
+The backend is organized into [GraphQL modules](https://graphql-modules.com/).
+
 More information in this [Medium post](https://medium.com/the-guild/graphql-modules-feature-based-graphql-modules-at-scale-2d7b2b0da6da)
 
 Each module merges its types and resolvers in order to export a `GraphQLModule` instance. These modules are then imported and merged into a single `GraphQLModule` module in the file `src/api/modules/index.js`. This object holds, among others, the `schema` and `context` which are fed to the `ApolloServer` instance in `src/api/index.js`
