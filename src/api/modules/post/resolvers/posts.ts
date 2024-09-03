@@ -1,4 +1,4 @@
-import { prisma } from "@/prisma/generated/prisma-client"
+import { PrismaClient } from "@prisma/client"
 
 const posts = [
   {
@@ -15,9 +15,10 @@ const posts = [
 
 // async function getPostsFromDB(root: any, args: any, context: any, info: any) {
 async function getPostsFromDB(root: any, args: any, ctx: any, info: any) {
-  return prisma.posts()
-  // const posts = await prisma.posts()
-  // return posts
+  const prisma = new PrismaClient()
+  const posts = await prisma.post.findMany()
+
+  return posts
 }
 
 export const postResolvers = {

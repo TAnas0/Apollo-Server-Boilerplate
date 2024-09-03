@@ -1,4 +1,4 @@
-import { prisma } from "@/prisma/generated/prisma-client"
+import { PrismaClient } from "@prisma/client"
 
 const comments = [
   {
@@ -7,8 +7,9 @@ const comments = [
 ]
 
 async function getCommentsFromDB() {
-  const comments = await prisma.comments()
-  return comments
+  const prisma = new PrismaClient()
+  // const comments = await prisma.comments.findMany()
+  return [0]
 }
 
 export const commentResolvers = {
