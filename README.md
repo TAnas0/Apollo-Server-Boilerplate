@@ -35,7 +35,9 @@ GraphQL modules offers extensibility of your code base and forces/helps you orga
 
 ## Prisma
 
-TODO
+Install Prisma CLI: `npm install -g prisma@5`
+Generate Prisma migrations from the Schema: `prisma generate --schema src/prisma/schema.prisma`
+Make sure the environment variable `DATABASE_URL` is well defined in `.env`, then apply migrations on the database: `prisma migrate dev --name init --schema src/prisma/schema.prisma`.
 
 ## Branches
 
