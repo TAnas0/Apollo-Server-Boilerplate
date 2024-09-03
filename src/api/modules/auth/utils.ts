@@ -1,4 +1,4 @@
-import { GraphQLArgs } from "graphql";
+import { GraphQLArgs } from "graphql"
 
 /**
  * Exchange a token for a User object

@@ -5,6 +5,7 @@
 const path = require("path")
 const webpack = require("webpack")
 const nodeExternals = require("webpack-node-externals")
+const ESLintPlugin = require("eslint-webpack-plugin")
 
 module.exports = {
   // https://github.com/liady/webpack-node-externals#quick-usage
@@ -18,25 +19,10 @@ module.exports = {
   entry: "./src/index.ts",
   module: {
     rules: [
-      // https://github.com/webpack-contrib/eslint-loader
-      {
-        test: /\.(js)$/,
-        loader: "eslint-loader",
-        enforce: "pre",
-        include: [
-          path.resolve(__dirname, "src"),
-          path.resolve(__dirname, "test"),
-        ],
-        options: {
-          formatter: require("eslint-friendly-formatter"),
-        },
-      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        loader: "babel-loader",
       },
       {
         test: /\.(graphql|gql)$/,
@@ -63,10 +49,14 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     // https://github.com/lorenwest/node-config/wiki/Webpack-Usage
     new webpack.DefinePlugin({ CONFIG: JSON.stringify(require("config")) }),
+    new ESLintPlugin({
+      extensions: ["js", "ts", "tsx"],
+      formatter: require("eslint-friendly-formatter"),
+    }),
   ],
 
   optimization: {
     // namedModules: true, // Not set, since used in dev mode and not in pro
-    noEmitOnErrors: true,
+    emitOnErrors: false,
   },
 }

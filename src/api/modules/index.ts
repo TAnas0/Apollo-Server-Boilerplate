@@ -10,7 +10,7 @@ import { AuthModule } from "@/api/modules/auth"
 
 // Importing guards
 import { authenticated } from "@/api/modules/auth/utils"
-// import { ModuleSessionInfo } from "@graphql-modules/core/dist/module-session-info";
+// import { ModuleSessionInfo } from "@graphql-modules/core/dist/module-session-info"
 // import validateRole from "@/api/modules/auth/utils"
 
 export const appModule = new GraphQLModule({
@@ -19,9 +19,9 @@ export const appModule = new GraphQLModule({
   resolversComposition: {
     "Query.me": [authenticated()],
   },
-	context: (request, currentContext, ModuleSessionInfo) => {
-		return {
-			prisma
-		}
-	}
+  context: (request, currentContext, ModuleSessionInfo) => {
+    return {
+      prisma,
+    }
+  },
 })

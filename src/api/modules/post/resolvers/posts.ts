@@ -15,7 +15,7 @@ const posts = [
 
 // async function getPostsFromDB(root: any, args: any, context: any, info: any) {
 async function getPostsFromDB(root: any, args: any, ctx: any, info: any) {
-	return prisma.posts()
+  return prisma.posts()
   // const posts = await prisma.posts()
   // return posts
 }
