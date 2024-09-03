@@ -13,7 +13,8 @@
     "commit": "git-cz"
   },
   "prisma": {
-    "seed": "ts-node src/prisma/seed.ts"
+    "seed": "ts-node src/prisma/seed.ts",
+    "schema": "src/prisma/schema.prisma"
   },
   "keywords": [
     "apollo",
