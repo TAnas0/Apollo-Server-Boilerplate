@@ -35,7 +35,11 @@ GraphQL modules offers extensibility of your code base and forces/helps you orga
 
 ## Prisma
 
-TODO
+Make sure the environment variable `DATABASE_URL` is well defined in `.env`, then generate and apply migrations on the database: `npx prisma migrate dev --name init`.
+
+Generate Prisma client from the Schema: `npx prisma generate`. The Prisma client will be available as an NPM package under `node_modules/@prisma/client`.
+
+To seed the database, run `npx prisma db seed`. If you have the environment variable `NODE_ENV` set to `development`, it will fill the database with test data.
 
 ## Branches
 
