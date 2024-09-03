@@ -12,6 +12,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "git-cz"
   },
+  "prisma": {
+    "seed": "ts-node src/prisma/seed.ts"
+  },
   "keywords": [
     "apollo",
     "graphql",
@@ -58,7 +61,8 @@
     "config": "^3.0.1",
     "js-yaml": "^3.12.0",
     "merge-graphql-schemas": "1.5.7",
-    "prisma": "^5.19.1"
+    "prisma": "^5.19.1",
+    "ts-node": "^10.9.2"
   },
   "config": {
     "commitizen": {
