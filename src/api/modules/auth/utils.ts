@@ -5,12 +5,13 @@ import { GraphQLArgs } from "graphql"
  * todo Use auth0
  * @param {*} token
  */
-export function tradeTokenForUser(token: String): Object {
+export function tradeTokenForUser(token: string): object {
   return {
     username: "conan",
   }
 }
 
+// eslint-disable-next-line
 export const authenticated = () => (next: Function) => async (
   root: any,
   args: any,
@@ -26,7 +27,7 @@ export const authenticated = () => (next: Function) => async (
 /**
  * validateRole guard
  */
-
+// eslint-disable-next-line
 export const validateRole = function(next: Function) {
   return function(root: any, args: any, context: any, info: any) {
     if (context.currentUser.role !== "EDITOR") {
