@@ -14,7 +14,6 @@ import { authResolvers } from "@/api/modules/auth/resolvers/auth"
 // Importing guards
 // import { authenticated } from "@/api/modules/auth/utils"
 
-
 // eslint-disable-next-line
 const postType = require("@/api/modules/post/types/post.graphql")
 // eslint-disable-next-line
@@ -26,6 +25,9 @@ export const application = createApplication({
   modules: [CommentModule, PostModule, AuthModule],
 })
 
-
 export const typeDefs = mergeTypeDefs([postType, commentType, authType])
-export const resolvers = mergeResolvers([postResolvers, commentResolvers, authResolvers])
+export const resolvers = mergeResolvers([
+  postResolvers,
+  commentResolvers,
+  authResolvers,
+])

@@ -3,7 +3,6 @@ import { ApolloServer } from "@apollo/server"
 import { startStandaloneServer } from "@apollo/server/standalone"
 import { tradeTokenForUser } from "@/api/modules/auth/utils"
 
-
 const PORT = process.env.PORT || 4000
 const HEADER_NAME = "authorization"
 
@@ -38,6 +37,5 @@ const { url } = await startStandaloneServer(server, {
     }
   },
 })
-
 
 console.log(`🚀  Server ready at: ${url}`)

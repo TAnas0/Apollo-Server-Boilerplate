@@ -8,7 +8,6 @@ import { authResolvers } from "@/api/modules/auth/resolvers/auth"
 const typeDefs = mergeTypeDefs([authType])
 const resolvers = mergeResolvers([authResolvers])
 
-
 export const AuthModule = createModule({
   id: "auth",
   dirname: __dirname,

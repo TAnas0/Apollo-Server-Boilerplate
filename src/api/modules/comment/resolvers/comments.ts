@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client"
 const comments = [
   {
     id: 1,
-    content: "This is a comment"
+    content: "This is a comment",
   },
 ]
 
