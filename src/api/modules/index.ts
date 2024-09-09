@@ -1,8 +1,4 @@
-// NPM
-import { GraphQLModule } from "@graphql-modules/core"
-
-import { PrismaClient } from "@prisma/client"
-const prisma = new PrismaClient()
+import { mergeTypeDefs, mergeResolvers } from "@graphql-tools/merge"
 
 // Importing the GraphQL modules
 import { CommentModule } from "@/api/modules/comment"

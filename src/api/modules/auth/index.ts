@@ -1,5 +1,4 @@
-import { GraphQLModule } from "@graphql-modules/core"
-import { mergeTypes, mergeResolvers } from "merge-graphql-schemas"
+import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge"
 const authType = require("@/api/modules/auth/types/auth.graphql")
 import { authResolvers } from "@/api/modules/auth/resolvers/auth"
 import { tradeTokenForUser } from "./utils"
