@@ -1,7 +1,7 @@
 {
-  "name": "apollo-server-2-boilerplate",
+  "name": "apollo-server-4-boilerplate",
   "version": "1.0.0",
-  "description": "Apollo Server 2 Boilerplate",
+  "description": "Apollo Server 4 Boilerplate",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
@@ -32,6 +32,8 @@
     "@types/express-serve-static-core": "^4.19.5",
     "@types/graphql": "^14.5.0",
     "@types/node": "^10.17.60",
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.4",
     "commitizen": "^3.0.5",
@@ -42,8 +44,6 @@
     "eslint-plugin-prettier": "3.0.0",
     "eslint-webpack-plugin": "^4.2.0",
     "forever": "0.15.3",
-    "graphql": "^14.7.0",
-    "graphql-tag": "2.10.0",
     "prettier": "1.14.3",
     "standard": "12.0.1",
     "ts-loader": "^5.4.5",
@@ -54,14 +54,16 @@
     "webpack-node-externals": "1.7.2"
   },
   "dependencies": {
+    "@apollo/server": "^4.11.0",
     "@babel/plugin-transform-runtime": "7.1.0",
     "@babel/runtime": "7.1.5",
-    "@graphql-modules/core": "0.2.17",
+    "@graphql-tools/merge": "^9.0.7",
     "@prisma/client": "^5.19.1",
-    "apollo-server": "2.1.0",
     "config": "^3.0.1",
+    "graphql": "^16.9.0",
+    "graphql-modules": "^2.3.0",
+    "graphql-tag": "^2.12.6",
     "js-yaml": "^3.12.0",
-    "merge-graphql-schemas": "1.5.7",
     "prisma": "^5.19.1",
     "ts-node": "^10.9.2"
   },
