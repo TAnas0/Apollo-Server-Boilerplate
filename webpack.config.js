@@ -5,7 +5,6 @@
 const path = require("path")
 const webpack = require("webpack")
 const nodeExternals = require("webpack-node-externals")
-const ESLintPlugin = require("eslint-webpack-plugin")
 
 module.exports = {
   // https://github.com/liady/webpack-node-externals#quick-usage
@@ -49,10 +48,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     // https://github.com/lorenwest/node-config/wiki/Webpack-Usage
     new webpack.DefinePlugin({ CONFIG: JSON.stringify(require("config")) }),
-    new ESLintPlugin({
-      extensions: ["js", "ts", "tsx"],
-      formatter: require("eslint-friendly-formatter"),
-    }),
   ],
 
   optimization: {
