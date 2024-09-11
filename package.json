@@ -11,7 +11,8 @@
     "build:production": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "git-cz",
-    "lint": "eslint ."
+    "lint:check": "prettier . --check",
+    "lint:write": "prettier . --write"
   },
   "prisma": {
     "seed": "ts-node src/prisma/seed.ts",
