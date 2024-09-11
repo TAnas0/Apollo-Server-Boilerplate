@@ -1,5 +1,5 @@
 type User {
-	username: String
+  username: String
   posts: [Post]!
   comments: [Comment]!
 }
@@ -15,5 +15,5 @@ type Comment {
 }
 
 type Query {
-	currentUser: User,
+  currentUser: User
 }

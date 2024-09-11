@@ -4,6 +4,6 @@ type Post {
 }
 
 type Query {
-  getPosts: [Post],
-  getPostsFromDB: [Post],
+  getPosts: [Post]
+  getPostsFromDB: [Post]
 }

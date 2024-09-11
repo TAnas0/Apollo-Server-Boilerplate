@@ -26,8 +26,4 @@ export const application = createApplication({
 })
 
 export const typeDefs = mergeTypeDefs([postType, commentType, authType])
-export const resolvers = mergeResolvers([
-  postResolvers,
-  commentResolvers,
-  authResolvers,
-])
+export const resolvers = mergeResolvers([postResolvers, commentResolvers, authResolvers])

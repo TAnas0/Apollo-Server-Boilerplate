@@ -7,14 +7,14 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: prisma
     networks:
-    - 'prisma'
+      - "prisma"
 
   prisma:
     container_name: "prisma"
     image: prismagraphql/prisma:1.22
     restart: always
     ports:
-    - 7766:7766
+      - 7766:7766
     environment:
       PRISMA_CONFIG: |
         port: 7766
@@ -31,7 +31,7 @@ services:
       # - api
       - db
     networks:
-    - 'prisma'
+      - "prisma"
 
   # The API is better launched using `npm run dev` for hot reloading
   # api:

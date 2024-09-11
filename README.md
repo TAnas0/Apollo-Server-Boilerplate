@@ -57,6 +57,7 @@ Please use the alias `npm run commit` for Commitizen friendly commits.
 ## Todos and roadmap
 
 [NodeJS best practices checklist](https://github.com/i0natan/nodebestpractices):
+
 - 1.5 Use environment aware, secure and hierarchical config
 
 Using the [node-config] package with Webpack. See [](https://github.com/lorenwest/node-config/wiki/Webpack-Usage)
