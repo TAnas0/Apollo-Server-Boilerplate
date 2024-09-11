@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # You can also use other runners like windows-latest or macos-latest
+    runs-on: ubuntu-latest # You can also use other runners like windows-latest or macos-latest
 
     steps:
       - name: Checkout code
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: "22"
 
       - name: Install dependencies
         run: npm install
