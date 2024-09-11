@@ -1,6 +1,6 @@
 type Comment {
-	id: ID!
-	content: String!
+  id: ID!
+  content: String!
 }
 
 # Extending Post type
@@ -9,6 +9,6 @@ type Post {
 }
 
 type Query {
-  getComments: [Comment],
-  getCommentsFromDB: [Comment],
+  getComments: [Comment]
+  getCommentsFromDB: [Comment]
 }
