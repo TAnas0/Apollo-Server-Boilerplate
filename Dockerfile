@@ -1,4 +1,4 @@
-FROM node:8.12.0-alpine as Builder
+FROM node:22.8.0-alpine3.20 AS builder
 
 WORKDIR /usr/app
 
@@ -8,7 +8,8 @@ COPY . .
 RUN npm install --no-package-lock
 RUN npm run build:production
 
-FROM node:8.12.0-alpine
+FROM node:22.8.0-alpine3.20
+
 WORKDIR /app
 COPY --from=Builder /usr/app/dist /app/dist
 COPY --from=Builder /usr/app/package.json /app/package.json
