@@ -6,44 +6,19 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: prisma
-    networks:
-      - "prisma"
-
-  prisma:
-    container_name: "prisma"
-    image: prismagraphql/prisma:1.22
-    restart: always
-    ports:
-      - 7766:7766
-    environment:
-      PRISMA_CONFIG: |
-        port: 7766
-        databases:
-          default:
-            connector: postgres
-            active: true
-            host: db
-            port: 5432
-            user: postgres
-            password: password
-            migrations: true
-    depends_on:
-      # - api
-      - db
-    networks:
-      - "prisma"
 
   # The API is better launched using `npm run dev` for hot reloading
-  # api:
-  #   container_name: graphql-api
-  #   build:
-  #     context: ./backend
-  #     dockerfile: ./Dockerfile
-  #   env_file:
-  #     - ./backend/.env.dev
-  #   ports:
-  #     - 4000:4000
-
-networks:
-  prisma:
-    driver: "bridge"
+  api:
+    container_name: graphql-api
+    build: .
+    env_file:
+      - ./.env.docker
+    command: >
+      sh -c '
+      sleep 5 &&
+      npx prisma migrate dev --name init &&
+      npx prisma generate'
+    ports:
+      - 4000:4000
+    depends_on:
+      - db
