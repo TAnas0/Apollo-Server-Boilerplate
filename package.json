@@ -34,7 +34,7 @@
     "@types/graphql": "^14.5.0",
     "@types/node": "^10.17.60",
     "babel-eslint": "10.0.1",
-    "babel-loader": "8.0.4",
+    "babel-loader": "9.2.1",
     "commitizen": "^4.3.0",
     "concurrently": "9.0.1",
     "forever": "4.0.3",
